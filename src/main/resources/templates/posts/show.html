@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Title</title>
 </head>
 <body>
+    <main th:if="${blogPosts}" th:each="blogPost : ${blogPosts}">
+        <div>
+            <h3 th:text="${blogPost.getTitle()}">Blog Post Title</h3>
+            <p th:text="${blogPost.getBody()}">Blog Post Text</p>
+        </div>
+    </main>
 
 </body>
 </html>
