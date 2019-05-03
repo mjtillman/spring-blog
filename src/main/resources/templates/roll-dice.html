@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <title>Roll Dice</title>
 </head>
+<nav>
+    <th:block th:replace="fragments/partials :: navbar"> </th:block>
+</nav>
 <body>
-    <h1>Casino Royale</h1>
     <div th:if="${guess}">
         Your guess was: <span th:text="${guess}"></span><br />
         The roll was: <span th:text="${roll}"></span><br /><br />
         <span th:text="${message}"></span>
     </div>
+    <th:block th:replace="fragments/partials :: header"> </th:block>
     <div>
         <a href="/roll-dice/1">1</a><br />
         <a href="/roll-dice/2">2</a><br />
@@ -19,5 +22,6 @@
         <a href="/roll-dice/5">5</a><br />
         <a href="/roll-dice/6">6</a><br />
     </div>
+    <th:block th:replace="fragments/partials :: footer"> </th:block>
 </body>
 </html>
