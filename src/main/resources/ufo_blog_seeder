@@ -1,0 +1,27 @@
+DROP TABLE IF EXISTS ufo_blog;
+
+CREATE TABLE posts (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE,
+    title VARCHAR(255) NOT NULL,
+    post TEXT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (owner_id) REFERENCES users (id)
+);
+
+INSERT INTO posts (title, body, owner_id)
+VALUES
+    ('Support me on Patreon!', 'Please help continue my investigation into the existence of extraterrestrial life', 1),
+    ('Is Adrien Brody An Alien?', 'Here are arguments both for and against whether he has exoplanetary origins...', 1),
+    ('How Hollywood Misrepresents What Real Aliens Would Be Like', 'ET is a lie!', 1),
+    ('Why Aliens Leave Crop Circles In The Middle Of Nowhere', 'The answer may be more obvious than you think...', 1);
+
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO users (email, username, password)
+VALUES ('mindy@test.com', 'mindy_test', 'macaroni');

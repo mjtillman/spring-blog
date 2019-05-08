@@ -1,9 +1,23 @@
 package com.codeup.blog.Models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="posts")
 public class BlogPost {
-  private String title;
-  private String body;
+
+  @Id @GeneratedValue
   private long id;
+
+  @Column(nullable = false)
+  private String title;
+
+  @Column(nullable = false)
+  private String body;
+
+  @ManyToOne
+  @JoinColumn (name = "owner_id")
+  private User owner;
 
   public BlogPost() { }
 
@@ -30,4 +44,8 @@ public class BlogPost {
   public long getId() { return id; }
 
   public void setId(long id) { this.id = id; }
+
+  public User getOwner() { return owner; }
+
+  public void setOwner(User owner) { this.owner = owner; }
 }

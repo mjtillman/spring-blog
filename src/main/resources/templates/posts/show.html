@@ -8,9 +8,9 @@
     <main th:if="${blogPosts}" th:each="blogPost : ${blogPosts}">
         <div>
             <h3 th:text="${blogPost.getTitle()}">Blog Post Title</h3>
+            <h6 th:text="${blogPost.getOwner()}">Blog Post Owner</h6>
             <p th:text="${blogPost.getBody()}">Blog Post Text</p>
         </div>
     </main>
-
 </body>
 </html>
