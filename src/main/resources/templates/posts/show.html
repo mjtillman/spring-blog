@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <title>Title</title>
 </head>
+<nav>
+    <th:block th:replace="fragments/partials :: ufo-navbar">
+
+    </th:block>
+</nav>
 <body>
     <main th:if="${blogPosts}" th:each="blogPost : ${blogPosts}">
         <div>
